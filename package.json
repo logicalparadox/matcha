@@ -2,14 +2,14 @@
   "author": "Jake Luer <jake@alogicalparadox.com>",
   "name": "aura",
   "description": "Tiny benchmarking.",
+  "keyword": [ "benchmark", "bench", "performance" ],
   "version": "0.0.1",
   "repository": {
-    "url": ""
+    "type": "git",
+    "url": "git://github.com/logicalparadox/aura.git"
   },
   "main": "index",
-  "scripts": {
-    "test": "make test"
-  },
+  "scripts": {},
   "engines": {
     "node": ">= 0.4.0 < 0.7.0"
   },
