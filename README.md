@@ -1,3 +1,3 @@
-# Aura
+# Matcha
 
 Tiny benchmarking library.
