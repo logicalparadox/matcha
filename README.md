@@ -1,0 +1,3 @@
+# Aura
+
+Tiny benchmarking library.
