@@ -1,1 +1,1 @@
-module.exports = require('./lib/aura');
+module.exports = require('./lib/matcha');

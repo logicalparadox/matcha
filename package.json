@@ -1,12 +1,12 @@
 {
   "author": "Jake Luer <jake@alogicalparadox.com>",
-  "name": "aura",
+  "name": "matcha",
   "description": "Tiny benchmarking.",
   "keyword": [ "benchmark", "bench", "performance" ],
   "version": "0.0.1",
   "repository": {
     "type": "git",
-    "url": "git://github.com/logicalparadox/aura.git"
+    "url": "git://github.com/logicalparadox/matcha.git"
   },
   "main": "index",
   "scripts": {},
