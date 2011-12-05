@@ -1,7 +1,5 @@
 var matcha = require('..')
-  , suite = new matcha.Suite({
-    duration: 3000
-  });
+  , suite = new matcha.Suite();
 
 suite.bench('basic 1', function (next) {
   var arr = [];
