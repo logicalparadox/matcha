@@ -9,12 +9,16 @@
     "url": "git://github.com/logicalparadox/matcha.git"
   },
   "main": "index",
+  "bin": {
+    "matcha": "./bin/matcha"
+  },
   "scripts": {},
   "engines": {
     "node": ">= 0.4.0 < 0.7.0"
   },
   "dependencies": {
-    "colors": "0.5.x"
+    "colors": "0.5.x",
+    "commander": "0.5.0"
   },
   "devDependencies": {}
 }

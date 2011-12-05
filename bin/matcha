@@ -1,0 +1,42 @@
+#!/usr/bin/env node
+
+var program = require('commander')
+  , path = require('path')
+  , fs = require('fs')
+  , matcha = require('../')
+  , cwd = process.cwd();
+
+var files = [];
+
+program
+  .version(matcha.version)
+  .usage('[files]');
+
+
+program.parse(process.argv);
+
+var files = program.args
+  , re = /\.js$/;
+
+if (!files.length) {
+  files = fs.readdirSync('benchmarks').filter(function(path){
+    return path.match(re);
+  }).map(function(_p){
+    return path.join('benchmarks', _p);
+  });
+}
+
+files = files.map(function(_p){
+  _p = require.resolve(path.join(cwd, _p));
+  return _p;
+});
+
+run();
+
+function run () {
+  files.forEach(function (file) {
+    var suite = require(file);
+    suite.run();
+  });
+}
+
