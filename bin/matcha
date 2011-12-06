@@ -6,6 +6,8 @@ var program = require('commander')
   , matcha = require('../')
   , cwd = process.cwd();
 
+var ui = require('../lib/interface');
+
 var files = [];
 
 program
@@ -31,12 +33,27 @@ files = files.map(function(_p){
   return _p;
 });
 
-run();
+var suite = new matcha.Suite({
+  iterations: 500000,
+  type: 'static'
+});
+
+load(files, function () {
+  run(suite, process.exit);
+});
+
+function load (files, cb) {
+  var after = files.length;
+  ui(suite);
+  files.forEach(function (file) {
+    delete require.cache[file];
+    suite.emit('pre-require', global);
+    suite.emit('require', require(file));
+    --after || cb();
+  });
+}
 
 function run () {
-  files.forEach(function (file) {
-    var suite = require(file);
-    suite.run();
-  });
+  suite.run();
 }
 
