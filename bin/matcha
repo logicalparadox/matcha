@@ -43,7 +43,9 @@ function load (files, cb) {
   });
 }
 
-function run () {
-  suite.run();
+function run (suite, cb) {
+  var runner = new matcha.Runner(suite);
+  var reporter = new matcha.Reporter(runner);
+  runner.run(cb);
 }
 
