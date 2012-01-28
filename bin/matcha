@@ -1,23 +1,14 @@
 #!/usr/bin/env node
 
-var program = require('commander')
+var argv = require('optimist').argv
   , path = require('path')
   , fs = require('fs')
-  , matcha = require('../')
+  , matcha = require('..')
   , cwd = process.cwd();
 
 var ui = require('../lib/interface');
 
-var files = [];
-
-program
-  .version(matcha.version)
-  .usage('[files]');
-
-
-program.parse(process.argv);
-
-var files = program.args
+var files = argv._
   , re = /\.js$/;
 
 if (!files.length) {
@@ -33,13 +24,12 @@ files = files.map(function(_p){
   return _p;
 });
 
-var suite = new matcha.Suite({
-  iterations: 500000,
-  type: 'static'
-});
+var suite = new matcha.Suite();
 
 load(files, function () {
-  run(suite, process.exit);
+  run(suite, function () {
+    console.log('finished')
+  });
 });
 
 function load (files, cb) {
