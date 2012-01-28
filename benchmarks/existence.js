@@ -4,6 +4,14 @@ suite('existence', function () {
     , bar = { __proto__: foo, b: 'hey' }
     , obj = { __proto__: bar, a: 'hey' };
 
+  before(function (done) {
+    setTimeout(done, 1000);
+  });
+
+  after(function (done) {
+    setTimeout(done, 1000);
+  });
+
   bench('in', function(next){
     'a' in obj;
     'b' in obj;
