@@ -14,7 +14,7 @@
   },
   "scripts": {},
   "engines": {
-    "node": ">= 0.4.0 < 0.7.0"
+    "node": ">= 0.4.0"
   },
   "dependencies": {
     "optimist": "0.3.x"

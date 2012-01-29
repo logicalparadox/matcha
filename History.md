@@ -1,4 +1,34 @@
 
+0.1.0 / 2012-01-29 
+==================
+
+  * README
+  * sane defaults
+  * few small cli things
+  * default reporter finished
+  * make reports presentable
+  * foot suite completed event and reporting
+  * correct folder `benchmark` not `benchmarks`
+  * reporting tweaks
+  * before / after support in suite/bench/runner
+  * before and after in sample benchmarks
+  * adding some variation to the included benchmarks
+  * bench detects runnable fn is async by using function length
+  * clean reporter
+  * bench return more stats
+  * bench list (results) event for runner
+  * nested suite example
+  * added clean reporter, main exports, clean up
+  * broke up suite to allow for nesting … added runner
+  * scrap crappy reporter
+  * update interface to match intended style
+  * teach bench how to count
+  * added some utils
+  * using optimist in binfile
+  * update benchmarks to match intended style
+  * git ignore vim stuffs
+  * package updates
+
 0.0.2 / 2011-12-06 
 ==================
 
