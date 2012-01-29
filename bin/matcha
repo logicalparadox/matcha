@@ -8,6 +8,21 @@ var argv = require('optimist').argv
 
 var ui = require('../lib/interface');
 
+if (argv.h || argv.help) {
+  console.log();
+  console.log('Matcha: help');
+  console.log();
+  console.log('Don\'t really have anything for you yet.');
+  console.log('Check back soon.');
+  console.log();
+  process.exit(0);
+}
+
+if (argv.v || argv.version) {
+  console.log(matcha.version);
+  process.exit(0);
+}
+
 var files = argv._
   , re = /\.js$/;
 
