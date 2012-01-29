@@ -12,10 +12,10 @@ var files = argv._
   , re = /\.js$/;
 
 if (!files.length) {
-  files = fs.readdirSync('benchmarks').filter(function(path){
+  files = fs.readdirSync('benchmark').filter(function(path){
     return path.match(re);
   }).map(function(_p){
-    return path.join('benchmarks', _p);
+    return path.join('benchmark', _p);
   });
 }
 
@@ -27,9 +27,7 @@ files = files.map(function(_p){
 var suite = new matcha.Suite();
 
 load(files, function () {
-  run(suite, function () {
-    console.log('finished')
-  });
+  run(suite, process.exit);
 });
 
 function load (files, cb) {
