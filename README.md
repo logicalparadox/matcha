@@ -55,6 +55,7 @@ suite('Make Tea', function () {
   set('type', 'static');
   // ...
 ```
+##### Defaults
 
 Here are all available options and the default values:
 
@@ -79,18 +80,18 @@ look in the current working directory for a folder named `benchmark` and load al
 
       $ matcha suite1.js suite2.js
 
-## Shoutouts
-
-* [mocha](http://visionmedia.github.com/mocha) inspired the suite/bench definition language. 
-
-### Contributing
+## Contributing
 
 Interested in contributing? Fork to get started. Contact [@logicalparadox](http://github.com/logicalparadox) 
 if you are interested in being regular contributor.
 
-#### Contibutors 
+##### Contibutors 
 
 * Jake Luer ([Github: @logicalparadox](http://github.com/logicalparadox)) ([Twitter: @jakeluer](http://twitter.com/jakeluer)) ([Website](http://alogicalparadox.com))
+
+## Shoutouts
+
+* [mocha](http://visionmedia.github.com/mocha) inspired the suite/bench definition language. 
 
 ## License
 
