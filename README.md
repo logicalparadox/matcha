@@ -28,7 +28,9 @@ suite('Make Tea', function () {
       next();
     });
   });
+
   // add tea, pour, ...  
+
   bench('sip tea', function() {
     tea.sip('mmmm');
   });
@@ -58,7 +60,7 @@ Here are all available options and the default values:
 
 ```js
 set('iterations', 100);     // the number of times to run a given bench
-set('type', 'adaptive'');   // or 'static' (see below)
+set('type', 'adaptive');    // or 'static' (see below)
 set('mintime', 500);        // when adaptive, the minimum time in ms a bench should run
 set('delay', 100);          // time in ms between each bench
 ```
