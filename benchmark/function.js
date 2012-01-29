@@ -2,17 +2,17 @@
 suite('function', function () {
   function foo () {}
 
-  bench('()', function (next) {
+  bench('foo()', function (next) {
     foo(1,2,3);
     next();
   });
 
-  bench('.call', function (next) {
+  bench('foo.call', function (next) {
     foo.call(foo, 1, 2, 3);
     next();
   });
 
-  bench('.apply', function (next) {
+  bench('foo.apply', function (next) {
     foo.apply(foo, [ 1, 2, 3 ]);
     next();
   });
