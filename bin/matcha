@@ -6,7 +6,7 @@ var argv = require('optimist').argv
   , matcha = require('..')
   , cwd = process.cwd();
 
-var ui = require('../lib/interface');
+var ui = require('../lib/matcha/interface');
 
 if (argv.h || argv.help) {
   console.log();
