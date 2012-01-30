@@ -1,4 +1,17 @@
 
+0.1.1 / 2012-01-29 
+==================
+
+  * update screenshot
+  * bench refactored to be a lot more efficient (and less taxing on stats), especially when running adaptively
+  * clean up existence example
+  * fonder naming complete
+  * standard deviation util
+  * folder rearrange
+  * bench holds own options + code cleanup
+  * i'll have typos for 1000, thanks
+  * README typos
+
 0.1.0 / 2012-01-29 
 ==================
 

@@ -1,9 +1,9 @@
 {
   "author": "Jake Luer <jake@alogicalparadox.com>",
   "name": "matcha",
-  "description": "Tiny benchmarking.",
+  "description": "Benchmark your code.",
   "keyword": [ "benchmark", "bench", "performance" ],
-  "version": "0.1.0",
+  "version": "0.1.1",
   "repository": {
     "type": "git",
     "url": "git://github.com/logicalparadox/matcha.git"
