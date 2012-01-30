@@ -5,7 +5,7 @@
 Matcha allow you to design experiments that will measure the performance of your code. It is recommended that each
 bench focus on a specific point of impact in your application.
 
-![Matcha Report](http://f.cl.ly/items/1U3Q3b1j3s0y360h2T33/matcha-benchmarks.png)
+![Matcha Report](http://f.cl.ly/items/3X0a1m0S250t2A0W3n1r/matcha-benchmark.png)
 
 ## Installation
 
