@@ -1,64 +1,87 @@
 #!/usr/bin/env node
+// -*- mode: javascript -*-
+// vi: set ft=javascript :
 
-var argv = require('optimist').argv
-  , path = require('path')
-  , fs = require('fs')
-  , matcha = require('..')
-  , cwd = process.cwd();
+var electron = require('electron')
+  , matcha = require('..');
 
 var ui = require('../lib/matcha/interface');
 
-if (argv.h || argv.help) {
-  console.log();
-  console.log('Matcha: help');
-  console.log();
-  console.log('Don\'t really have anything for you yet.');
-  console.log('Check back soon.');
-  console.log();
-  process.exit(0);
-}
-
-if (argv.v || argv.version) {
-  console.log(matcha.version);
-  process.exit(0);
-}
-
-var files = argv._
-  , re = /\.js$/;
-
-if (!files.length) {
-  files = fs.readdirSync('benchmark').filter(function(path){
-    return path.match(re);
-  }).map(function(_p){
-    return path.join('benchmark', _p);
+var program = electron('matcha')
+  .name('Matcha')
+  .version(matcha.version)
+  .desc('https://github.com/logicalparadox/matcha')
+  .cwd(process.cwd())
+  .theme('simple', {
+      command: 'absent'
+    , usage: '<options> <files>'
   });
-}
 
-files = files.map(function(_p){
-  _p = require.resolve(path.join(cwd, _p));
-  return _p;
-});
+program
+  .command('absent')
+  .desc('Run a suite of benchmarks.')
+  .option('-h, --help', 'view matcha usage information')
+  .option('-v, --version', 'view matcha version')
+  .option('-R, --reporter [default]', 'specify the reporter to use')
+  .option('--reporters', 'display available reporter')
+  .action(runSuite);
 
-var suite = new matcha.Suite();
+program
+  .command('default')
+  .action(runSuite);
 
-load(files, function () {
-  run(suite, process.exit);
-});
+program.parse();
 
-function load (files, cb) {
-  var after = files.length;
-  ui(suite);
-  files.forEach(function (file) {
-    delete require.cache[file];
-    suite.emit('pre-require', global);
-    suite.emit('require', require(file));
-    --after || cb();
+function runSuite (argv) {
+  var showReporters = argv.mode('reporters');
+
+  if (showReporters) {
+    program.colorize();
+    console.log('show reporters'.green);
+    process.exit();
+  }
+
+  var path = require('path')
+    , fs = require('fs')
+    , cwd = argv.cwd
+    , files = argv.commands.slice(0)
+    , re = /\.js$/;
+
+  if (!files.length) {
+    files = fs.readdirSync('benchmark').filter(function(path){
+      return path.match(re);
+    }).map(function(_p){
+      return path.join('benchmark', _p);
+    });
+  }
+
+  files = files.map(function(_p){
+    _p = require.resolve(path.join(cwd, _p));
+    return _p;
   });
-}
 
-function run (suite, cb) {
-  var runner = new matcha.Runner(suite);
-  var reporter = new matcha.Reporter(runner);
-  runner.run(cb);
-}
+  var suite = new matcha.Suite();
+
+  load(files, function () {
+    run(suite, process.exit);
+  });
+
+  function load (files, cb) {
+    var after = files.length;
+    ui(suite);
+    files.forEach(function (file) {
+      delete require.cache[file];
+      suite.emit('pre-require', global);
+      suite.emit('require', require(file));
+      --after || cb();
+    });
+  }
+
+  function run (suite, cb) {
+    var runner = new matcha.Runner(suite);
+    var reporter = new matcha.Reporter(runner);
+    runner.run(cb);
+  }
+
+};
 
