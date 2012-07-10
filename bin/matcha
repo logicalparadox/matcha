@@ -24,7 +24,6 @@ program
   .option('-v, --version', 'view matcha version')
   .option('-R, --reporter [default]', 'specify the reporter to use')
   .option('-I, --interface [bdd]', 'specify the interface to expect')
-  .option('--reporters', 'display available reporter')
   .action(runSuite);
 
 program
@@ -80,8 +79,8 @@ function runSuite (argv) {
   }
 
   function run (suite, cb) {
-    var runner = new matcha.Runner(suite);
-    var reporter = new matcha.Reporter(runner);
+    var runner = new matcha.Runner(suite)
+      , reporter = new matcha.reporters.Clean(runner);
     runner.run(cb);
   }
 
