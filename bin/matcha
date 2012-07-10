@@ -5,7 +5,7 @@
 var electron = require('electron')
   , matcha = require('..');
 
-var ui = require('../lib/matcha/interface');
+var Interface = require('../lib/matcha/interface');
 
 var program = electron('matcha')
   .name('Matcha')
@@ -67,12 +67,12 @@ function runSuite (argv) {
   });
 
   function load (files, cb) {
-    var after = files.length;
-    ui(suite);
+    var after = files.length
+      , ui = new Interface(suite);
     files.forEach(function (file) {
       delete require.cache[file];
-      suite.emit('pre-require', global);
-      suite.emit('require', require(file));
+      suite.emit('pre-require');
+      require(file);
       --after || cb();
     });
   }
