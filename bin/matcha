@@ -5,7 +5,7 @@
 var electron = require('electron')
   , matcha = require('..');
 
-var ui = require('../lib/matcha/interface');
+var Interface = require('../lib/matcha/interface');
 
 var program = electron('matcha')
   .name('Matcha')
@@ -23,6 +23,7 @@ program
   .option('-h, --help', 'view matcha usage information')
   .option('-v, --version', 'view matcha version')
   .option('-R, --reporter [default]', 'specify the reporter to use')
+  .option('-I, --interface [bdd]', 'specify the interface to expect')
   .option('--reporters', 'display available reporter')
   .action(runSuite);
 
@@ -60,18 +61,19 @@ function runSuite (argv) {
     return _p;
   });
 
-  var suite = new matcha.Suite();
+  var style = argv.param('I', 'interface') || 'bdd'
+    , suite = new matcha.Suite()
+    , ui = new Interface(suite, { style: style });
 
   load(files, function () {
     run(suite, process.exit);
   });
 
   function load (files, cb) {
-    var after = files.length;
-    ui(suite);
+    var after = files.length
     files.forEach(function (file) {
       delete require.cache[file];
-      suite.emit('pre-require', global);
+      suite.emit('pre-require');
       suite.emit('require', require(file));
       --after || cb();
     });
