@@ -2,18 +2,15 @@
 suite('function', function () {
   function foo () {}
 
-  bench('foo()', function (next) {
+  bench('foo()', function () {
     foo(1,2,3);
-    next();
   });
 
-  bench('foo.call', function (next) {
+  bench('foo.call', function () {
     foo.call(foo, 1, 2, 3);
-    next();
   });
 
-  bench('foo.apply', function (next) {
+  bench('foo.apply', function () {
     foo.apply(foo, [ 1, 2, 3 ]);
-    next();
   });
 });
