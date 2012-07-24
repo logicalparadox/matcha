@@ -1,4 +1,39 @@
 
+0.2.0 / 2012-07-24 
+==================
+
+  * add async bench example + cleanup
+  * fix bug for async bench improper sequence of events
+  * improvide code consistency for interface
+  * further cleaning of utils
+  * remove unused utils
+  * comment updates for timer
+  * provide date based timer for node < 0.8.x
+  * remove progress event listeners from reporters
+  * suite code cleanup
+  * bench code cleanup
+  * refactor series helper and update runner to comply
+  * Merge branch 'refactor/bench-timers'
+  * bench is using timer, not Date
+  * Merge branch 'refactor/reporter'
+  * comment cleanup
+  * finish modulizing reporter system to open up for more!
+  * Merge branch 'master' into refactor/reporter
+  * Merge branch 'feature/timers'
+  * add node high res timer constructor
+  * begin reporter refactor - folder organization
+  * Merge branch 'refactor/interface'
+  * add export interface style and a bit more commenting to existing
+  * refactor interfaces to use an interface manager
+  * Merge pull request #2 from domenic/patch-1
+  * Add xsuite and xbench for temporarily disabling benchmarks.
+  * Merge branch 'feature/cli'
+  * refactor cli to use electron
+  * more sample benchmarks
+  * main cli router
+  * match update
+  * bench onprogess looks for options in the right place
+
 0.1.1 / 2012-01-29 
 ==================
 
