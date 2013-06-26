@@ -22,7 +22,7 @@ program
   .desc('Run a suite of benchmarks.')
   .option('-h, --help', 'view matcha usage information')
   .option('-v, --version', 'view matcha version')
-  .option('-R, --reporter [default]', 'specify the reporter to use')
+  .option('-R, --reporter [clean]', 'specify the reporter to use')
   .option('-I, --interface [bdd]', 'specify the interface to expect')
   .action(runSuite);
 
@@ -37,7 +37,9 @@ function runSuite (argv) {
 
   if (showReporters) {
     program.colorize();
-    console.log('show reporters'.green);
+    console.log();
+    console.log('    clean - clean list');
+    console.log('    palin - plain text list');
     process.exit();
   }
 
@@ -70,6 +72,16 @@ function runSuite (argv) {
     , suite = new matcha.Suite()
     , ui = new Interface(suite, { style: style });
 
+  // load reporter
+  try {
+    var rep = argv.param('R', 'reporter') || 'clean';
+    var Reporter = require('../lib/matcha/reporters/' + rep);
+  } catch (err) {
+    console.log(err)
+    console.log('reporter "' + rep + '" does not exist');
+    process.exit();
+  }
+
   load(files, function () {
     run(suite, process.exit);
   });
@@ -86,7 +98,7 @@ function runSuite (argv) {
 
   function run (suite, cb) {
     var runner = new matcha.Runner(suite)
-      , reporter = new matcha.reporters.Clean(runner);
+      , reporter = new Reporter(runner);
     runner.run(cb);
   }
 
