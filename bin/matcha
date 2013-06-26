@@ -24,6 +24,8 @@ program
   .option('-v, --version', 'view matcha version')
   .option('-R, --reporter [clean]', 'specify the reporter to use')
   .option('-I, --interface [bdd]', 'specify the interface to expect')
+  .option('--interfaces', 'display available interfaces')
+  .option('--reporters', 'display available reporters  ')
   .action(runSuite);
 
 program
@@ -33,12 +35,21 @@ program
 program.parse();
 
 function runSuite (argv) {
-  var showReporters = argv.mode('reporters');
 
+  var showInterfaces = argv.mode('interfaces');
+  if (showInterfaces) {
+    program.colorize();
+    console.log();
+    console.log('    bdd     - suite/bench style');
+    console.log('    exports - commonjs style interface');
+    process.exit();
+  }
+
+  var showReporters = argv.mode('reporters');
   if (showReporters) {
     program.colorize();
     console.log();
-    console.log('    clean - clean list [default]');
+    console.log('    clean - clean list');
     console.log('    plain - plain text list');
     console.log('    csv   - comma seperated values');
     process.exit();
