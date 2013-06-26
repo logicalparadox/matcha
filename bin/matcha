@@ -38,8 +38,9 @@ function runSuite (argv) {
   if (showReporters) {
     program.colorize();
     console.log();
-    console.log('    clean - clean list');
-    console.log('    palin - plain text list');
+    console.log('    clean - clean list [default]');
+    console.log('    plain - plain text list');
+    console.log('    csv   - comma seperated values');
     process.exit();
   }
 
