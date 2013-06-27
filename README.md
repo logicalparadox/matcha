@@ -80,6 +80,58 @@ look in the current working directory for a folder named `benchmark` and load al
 
       $ matcha suite1.js suite2.js
 
+## Options
+
+        -h, --help               view matcha usage information
+        -v, --version            view matcha version
+        -R, --reporter [clean]   specify the reporter to use
+        -I, --interface [bdd]    specify the interface to expect
+        --interfaces             display available interfaces
+        --reporters              display available reporters
+
+#### -I, --interface <name>
+The --interface option lets you specify the interface to use, defaulting to "bdd".
+
+#### -R, --reporter <name>
+The --reporter option allows you to specify the reporter that will be used, defaulting to "clean".
+
+### Interfaces
+Matcha "interface" system allows developers to choose their style of DSL. Shipping with bdd, and     exports flavoured interfaces.
+#### bdd
+
+```js
+suite('suite name', function(){
+    set('iterations', 10);
+    bench('bench name', function(done){
+        some_fn(done);
+  });
+});
+```
+
+#### exports
+
+```js
+exports['suite name'] = {
+    options: {
+      iterations: 10
+    },
+    bench: {
+        'bench name': function (doen) {
+            some_fn(done);
+        }
+    }
+};
+```
+
+### Reporters
+Matcha reporters adjust to the terminal window.
+#### clean
+Good-looking default reporter with colors on the terminal screen.
+#### plain
+Similar to _clean_ reporter but without colors and other ANSI sequences.
+#### csv
+Completely different, create csv formated rows for later processing.
+
 ## Contributing
 
 Interested in contributing? Fork to get started. Contact [@logicalparadox](http://github.com/logicalparadox) 
