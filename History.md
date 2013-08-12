@@ -1,4 +1,22 @@
 
+0.3.0 / 2013-08-12 
+==================
+
+ * reporter: [csv ] small tweaks
+ * reporter: [plain] small tweaks
+ * deps: [electron] update version tag
+ * example: [async] errors on node 10
+ * Merge pull request #5 from vavere/master
+ * update readme
+ * add help about available interfaces/reporters
+ *  add csv reporter
+ * add plain text reporter
+ * Merge pull request #4 from domenic/patch-1
+ * Small fixes to make more pleasant on Windows
+ * bin checks for existence of default `benchmark` folder if no files provided
+ * code cleanup for runner and comments
+ * comments for suite
+
 0.2.0 / 2012-07-24 
 ==================
 
