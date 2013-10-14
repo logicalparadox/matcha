@@ -10,7 +10,8 @@
   },
   "main": "index",
   "bin": {
-    "matcha": "./bin/matcha"
+    "matcha": "./bin/matcha",
+    "_matcha": "./bin/_matcha"
   },
   "scripts": {},
   "engines": {
