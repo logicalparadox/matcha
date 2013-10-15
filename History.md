@@ -1,4 +1,10 @@
 
+0.4.0 / 2013-10-15 
+==================
+
+ * Merge pull request #8 from visionmedia/add/harmony
+ * add support for some v8 flags including --harmony
+
 0.3.0 / 2013-08-12 
 ==================
 
