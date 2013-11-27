@@ -1,6 +1,6 @@
 # Matcha
 
-> A caffeine driven, simplistic approach to benchmarking.
+> A caffeine driven, simple approach to benchmarking.
 
 Matcha allow you to design experiments that will measure the performance of your code. It is recommended that each
 bench focus on a specific point of impact in your application.
