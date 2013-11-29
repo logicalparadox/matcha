@@ -42,6 +42,27 @@ Since boiling water takes time, a `next` function was provided to each iteration
 async function completes. Since the consumption of tea provides instant gratification, no `next` needed to be provided, even though
 we still wish to measure it.
 
+#### Setup/Teardown
+
+Arbitray functions may be specified for setup or teardown for each suite by using the `before` and `after` keywords.
+These function may be sync or async.
+
+```js
+suite('DB', function() {
+  before(function(next) {
+    db.connect('localhost:9090', next);
+  });
+
+  bench(function(next) {
+    // ...
+  });
+
+  after(function() {
+    db.close();
+  });
+});
+```
+
 #### Setting Options
 
 As not all code is equal, we need a way to change the running conditions for our benches. Options can currently be changed for
