@@ -18,7 +18,8 @@
     "node": ">= 0.6.0"
   },
   "dependencies": {
-    "electron": "0.4.x"
+    "electron": "0.4.x",
+    "v8-argv": "0.1.x"
   },
   "devDependencies": {}
 }
