@@ -1,4 +1,14 @@
 
+0.4.1 / 2013-12-02 
+==================
+
+ * Merge branch 'refactor/v8'
+ * bin: v8-argv support
+ * test: confirm can run single iteration. Closes #11
+ * docs: before/after were undocumented. Closes #7
+ * Merge pull request #10 from alexlande/patch-1
+ * Replace simplistic with simple in readme
+
 0.4.0 / 2013-10-15 
 ==================
 
