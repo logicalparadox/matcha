@@ -1,4 +1,12 @@
 
+0.5.0 / 2014-04-04 
+==================
+
+  * Merge pull request #13 from patrick-steele-idem/master
+  * Store the stats with each bench to help reporters report the results
+  * Added Patrick Steele-Idem as contributor
+  * Simplified the reporter API and added support for third-party reporters
+
 0.4.1 / 2013-12-02 
 ==================
 
