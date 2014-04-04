@@ -3,7 +3,8 @@
 // vi: set ft=javascript :
 
 var electron = require('electron')
-  , matcha = require('..');
+  , matcha = require('..')
+  , utils = matcha.utils;
 
 var Interface = require('../lib/matcha/interface');
 
@@ -82,16 +83,37 @@ function runSuite (argv) {
 
   var style = argv.param('I', 'interface') || 'bdd'
     , suite = new matcha.Suite()
-    , ui = new Interface(suite, { style: style });
+    , ui = new Interface(suite, { style: style })
+    , reporter;
 
   // load reporter
   try {
     var rep = argv.param('R', 'reporter') || 'clean';
-    var Reporter = require('../lib/matcha/reporters/' + rep);
+
+    var repPath;
+
+    try {
+      repPath = require.resolve('../lib/matcha/reporters/' + rep);  
+    } catch(e) {
+      try {
+        if (rep.charAt(0) === '.') {
+          rep = require('path').resolve(process.cwd(), rep);
+        }
+
+        repPath = require.resolve(rep);
+      } catch(e) {}
+    }
+
+    if (!repPath) {
+      console.error(err);
+      console.error('reporter "' + rep + '" does not exist');
+      process.exit(1); // Exit with an error code
+    }
+
+    reporter = require(repPath);
   } catch (err) {
-    console.log(err)
-    console.log('reporter "' + rep + '" does not exist');
-    process.exit();
+    console.error('Unable to load reporter "' + rep + '". Error: ' + (err.stack || err));
+    process.exit(1);
   }
 
   load(files, function () {
@@ -109,8 +131,8 @@ function runSuite (argv) {
   }
 
   function run (suite, cb) {
-    var runner = new matcha.Runner(suite)
-      , reporter = new Reporter(runner);
+    var runner = new matcha.Runner(suite);
+    reporter(runner, utils)
     runner.run(cb);
   }
 
