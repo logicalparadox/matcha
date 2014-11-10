@@ -1,4 +1,12 @@
 
+0.6.0 / 2014-11-10 
+==================
+
+ * Merge pull request #17 from juliangruber/handle-errors
+ * throw on error
+ * Merge pull request #16 from rkusa/master
+ * add `concurrency` options
+
 0.5.0 / 2014-04-04 
 ==================
 
