@@ -1,4 +1,5 @@
 
+/*
 suite('errors', function () {
   before(function () {
     throw new Error('before sync');
@@ -19,3 +20,4 @@ suite('errors', function () {
     next(new Error('after async'));
   });
 });
+*/

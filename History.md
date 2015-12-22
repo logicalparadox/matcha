@@ -1,4 +1,11 @@
 
+0.6.1 / 2015-12-22
+==================
+
+  * Merge pull request #18 from landau/patch-1
+  * Use ops as ending value
+  * add ops to csv output
+
 0.6.0 / 2014-11-10 
 ==================
 
