@@ -166,7 +166,7 @@ if you are interested in being regular contributor.
 
 ## Shoutouts
 
-* [mocha](http://visionmedia.github.com/mocha) inspired the suite/bench definition language. 
+* [mocha](https://mochajs.org) inspired the suite/bench definition language. 
 
 ## License
 
