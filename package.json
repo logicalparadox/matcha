@@ -3,7 +3,7 @@
   "name": "matcha",
   "description": "Benchmark your code.",
   "keyword": [ "benchmark", "bench", "performance" ],
-  "version": "0.6.1",
+  "version": "0.7.0",
   "repository": {
     "type": "git",
     "url": "git://github.com/logicalparadox/matcha.git"

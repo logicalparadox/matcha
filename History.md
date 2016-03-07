@@ -1,4 +1,12 @@
 
+0.7.0 / 2016-03-07
+==================
+
+  * Merge pull request #23 from addaleax/json-reporter
+  * Merge pull request #21 from stevemao/patch-1
+  * Add JSON reporter
+  * update mocha link
+
 0.6.1 / 2015-12-22
 ==================
 
