@@ -11,7 +11,7 @@ bench focus on a specific point of impact in your application.
 
 Matcha is available on npm.
 
-      $ npm install matcha
+      $ npm install matcha -g
 
 ## Writing Async Benchmarks
 
