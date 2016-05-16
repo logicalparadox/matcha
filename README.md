@@ -66,7 +66,7 @@ suite('DB', function() {
 #### Setting Options
 
 As not all code is equal, we need a way to change the running conditions for our benches. Options can currently be changed for
-any given suite, and will be retained for any nested suites or benches of that suite. 
+any given suite, and will be retained for any nested suites or benches of that suite.
 
 To set an option:
 
@@ -74,8 +74,10 @@ To set an option:
 suite('Make Tea', function () {
   set('iterations', 10000);
   set('type', 'static');
-  // ...
+   ...
+});
 ```
+
 ##### Defaults
 
 Here are all available options and the default values:
@@ -97,7 +99,7 @@ check again (and repeat) until the requirement has been satisfied.
 ## Running Benchmarks
 
 Running of your benchmarks is provided through `./bin/matcha`. The recommended approach is to add a devDependancy in your
-`package.json` and then add a line to a `Makefile` or build tool. The `matcha` bin will accept a list of files to load or will 
+`package.json` and then add a line to a `Makefile` or build tool. The `matcha` bin will accept a list of files to load or will
 look in the current working directory for a folder named `benchmark` and load all files.
 
       $ matcha suite1.js suite2.js
@@ -156,17 +158,17 @@ Completely different, create csv formated rows for later processing.
 
 ## Contributing
 
-Interested in contributing? Fork to get started. Contact [@logicalparadox](http://github.com/logicalparadox) 
+Interested in contributing? Fork to get started. Contact [@logicalparadox](http://github.com/logicalparadox)
 if you are interested in being regular contributor.
 
-##### Contibutors 
+##### Contibutors
 
 * Jake Luer ([Github: @logicalparadox](http://github.com/logicalparadox)) ([Twitter: @jakeluer](http://twitter.com/jakeluer)) ([Website](http://alogicalparadox.com))
 * Patrick Steele-Idem ([Github: @patrick-steele-idem](http://github.com/patrick-steele-idem)) ([Twitter: @psteeleidem](http://twitter.com/psteeleidem))
 
 ## Shoutouts
 
-* [mocha](https://mochajs.org) inspired the suite/bench definition language. 
+* [mocha](https://mochajs.org) inspired the suite/bench definition language.
 
 ## License
 
