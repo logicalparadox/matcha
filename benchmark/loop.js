@@ -18,7 +18,7 @@ suite('array loop', function () {
 
   bench('for count', function () {
     var s = 0;
-    for (var i = 1; i < arr.length; i++) {
+    for (var i = 0; i < arr.length; i++) {
       s = s + arr[i];
     }
   });
