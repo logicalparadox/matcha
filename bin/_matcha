@@ -2,7 +2,8 @@
 // -*- mode: javascript -*-
 // vi: set ft=javascript :
 
-var electron = require('electron')
+var arrify = require('arrify')
+  , electron = require('electron')
   , matcha = require('..')
   , utils = matcha.utils;
 
@@ -25,6 +26,7 @@ program
   .option('-v, --version', 'view matcha version')
   .option('-R, --reporter [clean]', 'specify the reporter to use')
   .option('-I, --interface [bdd]', 'specify the interface to expect')
+  .option('-r, --require', 'require additional modules')
   .option('--interfaces', 'display available interfaces')
   .option('--reporters', 'display available reporters  ')
   .action(runSuite);
@@ -63,6 +65,17 @@ function runSuite (argv) {
     , files = argv.commands.slice(0)
     , re = /\.js$/;
 
+  // require additional modules
+  try {
+    var modules = arrify(argv.param('r', 'require'));
+    modules.forEach(function (r) {
+      require(r);
+    });
+  } catch (err) {
+    console.error(err.stack || err);
+    process.exit(1);
+  }
+
   if (!files.length) {
     if (!exists(path.join(cwd, 'benchmark'))) {
       console.error('Matcha: cannot find default `benchmark` folder.');
@@ -93,7 +106,7 @@ function runSuite (argv) {
     var repPath;
 
     try {
-      repPath = require.resolve('../lib/matcha/reporters/' + rep);  
+      repPath = require.resolve('../lib/matcha/reporters/' + rep);
     } catch(e) {
       try {
         if (rep.charAt(0) === '.') {
@@ -137,4 +150,3 @@ function runSuite (argv) {
   }
 
 };
-
