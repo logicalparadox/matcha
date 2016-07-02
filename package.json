@@ -18,6 +18,7 @@
     "node": ">= 0.8.0"
   },
   "dependencies": {
+    "arrify": "1.0.x",
     "electron": "0.4.x",
     "v8-argv": "0.1.x"
   },
