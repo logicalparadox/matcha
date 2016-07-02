@@ -121,7 +121,7 @@ The --reporter option allows you to specify the reporter that will be used, defa
 #### -r --require <name>
 The --require option allows you to require additional modules.
 
-```js
+```bash
 $ matcha suite1.js suite2.js --require babel-core/register
 ```
 
