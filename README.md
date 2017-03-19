@@ -138,7 +138,7 @@ exports['suite name'] = {
       iterations: 10
     },
     bench: {
-        'bench name': function (doen) {
+        'bench name': function (done) {
             some_fn(done);
         }
     }
