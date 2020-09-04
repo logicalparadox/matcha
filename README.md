@@ -15,7 +15,7 @@ Matcha is available on npm.
 
 ## Writing Async Benchmarks
 
-Though suites/benches are executed serially, the benches themselves can be asyncronous. Furthermore, suites ran with
+Though suites/benches are executed serially, the benches themselves can be asynchronous. Furthermore, suites ran with
 the matcha command line runner have a number of globals to simplify bench definitions. Take the following code, for example:
 
 ```js
